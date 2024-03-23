@@ -1,0 +1,58 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+}
+
+textarea {
+    width: 90%;
+}
+
+.caps {
+    text-transform: uppercase;
+}
+
+.dark {
+    background: rgb(87, 87, 87);
+    background: linear-gradient(45deg, rgba(87, 87, 87, 1) 50%, rgba(51, 55, 55, 1) 50%);
+    color: white;
+    border-color: white;
+}
+
+.light {
+    background: rgb(148, 187, 233);
+    background: linear-gradient(45deg, rgba(148, 187, 233, 1) 50%, rgba(174, 234, 238, 1) 50%);
+    color: black;
+    border-color: black;
+}
+
+.prev {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+}
+
+.prev p {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid;
+    min-height: 10rem;
+    height: fit-content;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
