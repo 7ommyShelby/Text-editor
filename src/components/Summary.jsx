@@ -4,8 +4,8 @@ import './sum.css'
 
 const Summary = () => {
 
-    const { text } = useContext(EditorContext);
-    let trim = text.trim();
+    const { state } = useContext(EditorContext);
+    let trim = state.text.trim();
     let arr = trim.split(" ");
 
 
@@ -18,7 +18,7 @@ const Summary = () => {
             </div>
             <div>
                 <h3>Number of Characters</h3> :
-                <p>{text.length}</p>
+                <p>{state.text.length}</p>
             </div>
 
         </div>

@@ -8,7 +8,7 @@ import Nav from './Nav'
 
 const Home = () => {
 
-  const { text, setText, mode } = useContext(EditorContext)
+  const {dispatch, state} = useContext(EditorContext)
   const tref = useRef();
 
 
@@ -16,29 +16,29 @@ const Home = () => {
     <>
       <Nav />
 
-      <main className={mode ? "dark" : "light"}>
+      <main className={state.mode ? "dark" : "light"}>
         <div className='input'>
           <h1>Text Editor</h1>
-          <textarea ref={tref} name="" id="" rows="10" value={text} onChange={(e) => {
-            setText(e.target.value);
+          <textarea ref={tref} name="" id="" rows="10" value={state.text} onChange={(e) => {
+            dispatch({type : 'set-text' , payload : e.target.value});
           }}></textarea>
 
-          {console.log("text", tref.current)}
+
 
           <div className="controls">
             <button onClick={() => {
               let x = tref.current.value.toUpperCase();
-              setText(x);
+              dispatch({type : 'set-text' , payload : x});
             }}>Uppercase</button>
 
             <button onClick={() => {
               let x = tref.current.value.toLowerCase();
-              setText(x);
+              dispatch({type : 'set-text' , payload : x});
             }}>Lowercase</button>
 
             <button onClick={() => {
               tref.current.value = "";
-              setText("")
+              dispatch({type : 'set-text' , payload : ""});
             }}>Clear Text</button>
 
             <button onClick={() => {
@@ -47,7 +47,7 @@ const Home = () => {
 
             <button onClick={() => {
               let tr = tref.current.value.trim();
-              setText(tr);
+              dispatch({type : 'set-text' , payload : tr});
             }}>Remove extra spaces</button>
           </div>
         </div>

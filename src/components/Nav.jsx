@@ -5,9 +5,8 @@ import { EditorContext } from '../App'
 
 const Nav = () => {
 
-  const {mode, setMode} = useContext(EditorContext);
+  const { state, dispatch } = useContext(EditorContext);
 
-  console.log(mode);
 
   return (
 
@@ -17,9 +16,11 @@ const Nav = () => {
         <h3>Text Utils</h3>
 
         <div class="checkbox-wrapper-35">
-          <input value="private" name="switch" id="switch" type="checkbox" className="switch" onClick={()=>{
-            mode ? setMode(false) : setMode(true);
-          }}/>
+          <input value="private" name="switch" id="switch" type="checkbox" className="switch" onClick={() => {
+            state.mode ? dispatch({ type: 'set-mode', payload: false }) : dispatch({ type: 'set-mode', payload: true });
+          }} />
+
+
           <label for="switch">
             <span className="switch-x-text">Dark Mode </span>
             <span className="switch-x-toggletext">
